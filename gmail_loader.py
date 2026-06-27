@@ -1,3 +1,6 @@
+import imaplib
+import email
+from datetime import datetime, timedelta
 class GmailLoader:
     def __init__(self, email_address, app_password):
         self.email = email_address
