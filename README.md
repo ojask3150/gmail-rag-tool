@@ -20,6 +20,9 @@ A retrieval-augmented generation (RAG) system that enables natural language quer
 - Groq API (LLM)
 - Python (backend)
 ---
+## Live Demo link:- 
+### https://gmail-rag-tool-kg3jnmgehnxfw6tbmbchwy.streamlit.app/
+---
 ## Installation
 
 ### Clone the repository:
