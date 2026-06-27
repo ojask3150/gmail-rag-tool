@@ -84,6 +84,19 @@ if st.session_state.loaded and st.session_state.rag:
         "Any offers or coupons?",
         "What's the sentiment of my emails?"
     ]
+    if "question" in st.session_state and st.session_state.question:
+        with st.spinner("Thinking..."):
+            result = st.session_state.rag.query(st.session_state.question)
+            st.markdown("### Answer")
+            st.write(result["answer"])
+            
+            if result.get("sources"):
+                st.markdown("### Sources")
+                for s in result["sources"][:3]:
+                    st.caption(f"{s.get('sender', 'Unknown')} | {s.get('subject', 'No subject')}")
+        
+        # Clear the question to prevent re-running
+        st.session_state.question = ""
     for i, suggestion in enumerate(suggestions):
         with cols[i % 3]:
             if st.button(suggestion, use_container_width=True):
